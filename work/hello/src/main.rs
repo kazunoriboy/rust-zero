@@ -1,10 +1,18 @@
 fn main() {
-    let x: i32 = 10;
-    let y = 20;
-    let z = mul(x, y);
-    println!("z = {z}");
+    println!("短絡評価");
+    println!("{}", a() || b());
+
+    println!("非短絡評価");
+    println!("{}", a() | b());
 }
 
-fn mul(x: i32, y: i32) -> i32 {
-    x * y
+fn a() -> bool {
+    println!("関数aを実行");
+    true
 }
+
+fn b() -> bool {
+    println!("関数bを実行");
+    true
+}
+
