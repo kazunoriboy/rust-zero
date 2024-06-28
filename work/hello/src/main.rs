@@ -1,18 +1,12 @@
 fn main() {
-    println!("短絡評価");
-    println!("{}", a() || b());
+    let mut n: u64 = 100;
+     
+    let a: &u64 = &n;
+    // *a = 200;
+    println!("*a = {}, addr = {:p}", *a, a);
 
-    println!("非短絡評価");
-    println!("{}", a() | b());
+    let b: &mut u64 = &mut n;
+    println!("{:p}", b);
+    *b = 200;
+    println!("n = {n}");
 }
-
-fn a() -> bool {
-    println!("関数aを実行");
-    true
-}
-
-fn b() -> bool {
-    println!("関数bを実行");
-    true
-}
-
