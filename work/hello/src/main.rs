@@ -1,9 +1,20 @@
 fn main() {
     enum Storage {
-        HDD { size: u32, rpm: u32 },
+        HDD{ size: u32, rmp: u32 },
         SSD(u32),
     }
 
-    let hdd = Storage::HDD { size: 512, rpm: 7200 };
-    let ssd = Storage::SSD(512);
+    struct PCSpec {
+        cpus: u16,
+        memory: u32,
+        storage: Storage,
+    }
+
+    let spec = PCSpec {
+        cpus: 8,
+        memory: 16,
+        storage: Storage::SSD(1024),
+    };
+
+    println!("{}", spec.cpus);
 }
