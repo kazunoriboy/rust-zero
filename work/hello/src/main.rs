@@ -1,16 +1,8 @@
 fn main() {
-    enum List<T> {
-        Node { data: T, next: Box<List<T>> },
-        Nil,
-    }
-
-    let n1 = List::<u32>::Nil;
-    let n2 = List::<u32>::Node {
-        data: 10,
-        next: Box::<List<u32>>::new(n1),
-    };
-    let n3 = List::Node {
-        data: 40,
-        next: Box::new(n2),
-    };
+    make_pair::<u8, bool>(40, false);
+    make_pair(10, true);
 }
+fn make_pair<T1, T2>(a: T1, b: T2) -> (T1, T2) {
+    (a, b)
+}
+
