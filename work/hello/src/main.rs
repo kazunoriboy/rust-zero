@@ -1,7 +1,10 @@
 fn main() {
-    let arr: [u32; 4] = [1, 2, 3, 4];
-    println!("{}, {}, {}, {}", arr[0], arr[1], arr[2], arr[3]);
+    let a: &str = " hello";
+    // a += ", world!";
 
-    let s: &[u32] = &arr[1..3];
-    println!("{:?}", s);
+    let mut b: String = a.to_string();
+    b += ", world!";
+
+    let c: &str = b.trim();
+    println!("{c}");
 }
