@@ -1,12 +1,7 @@
 fn main() {
-    let mut n: u64 = 100;
-     
-    let a: &u64 = &n;
-    // *a = 200;
-    println!("*a = {}, addr = {:p}", *a, a);
+    let arr: [u32; 4] = [1, 2, 3, 4];
+    println!("{}, {}, {}, {}", arr[0], arr[1], arr[2], arr[3]);
 
-    let b: &mut u64 = &mut n;
-    println!("{:p}", b);
-    *b = 200;
-    println!("n = {n}");
+    let s: &[u32] = &arr[1..3];
+    println!("{:?}", s);
 }
