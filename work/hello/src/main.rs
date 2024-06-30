@@ -1,10 +1,16 @@
+fn do_it(f: fn(u32, u32) -> u32, a: u32, b: u32) {
+    println!("{}", f(a, b));
+}
+
+fn add(a: u32, b: u32) -> u32 {
+    a + b
+}
+
+fn mul(a: u32, b: u32) -> u32 {
+    a * b
+}
+
 fn main() {
-    let a: &str = " hello";
-    // a += ", world!";
-
-    let mut b: String = a.to_string();
-    b += ", world!";
-
-    let c: &str = b.trim();
-    println!("{c}");
+    do_it(add, 10, 2);
+    do_it(mul, 10, 2);
 }
