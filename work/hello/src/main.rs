@@ -1,9 +1,12 @@
 fn main() {
-    fn maybe_fail() -> Option<u32> {
-        Some(10)
+    fn sumup(n: u64) -> u64 {
+        if n == 0 {
+            0
+        } else {
+            n + sumup(n - 1)
+        }
     }
 
-    let result = maybe_fail();
-    let result = result.unwrap();
+    println!("{}", sumup(100000));
 }
 
