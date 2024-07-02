@@ -1,10 +1,9 @@
 fn main() {
-    let n = 10;
-    {
-        let m = 200;
-        let r = m + n;
+    fn maybe_fail() -> Option<u32> {
+        Some(10)
     }
-    let p = m + n;
 
+    let result = maybe_fail();
+    let result = result.unwrap();
 }
 
