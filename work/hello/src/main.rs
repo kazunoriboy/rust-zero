@@ -1,11 +1,19 @@
 fn main() {
-    fn sumup_for(n: u64) -> u64 {
-        let mut total = 0;
-        for x in 0..=n {
-            total += x;
+    let mut n = 0;
+    let mut m = 0;
+    'main_loop: loop {
+        println!("loop");
+        loop {
+            println!("loop in loop");
+            if n == 5 {
+                break 'main_loop;
+            }
+            n += 1;
         }
-        total
+        if (m == 5) {
+            break;
+        }
     }
-    println!("{}", sumup_for(10));
+
 }
 
