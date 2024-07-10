@@ -1,19 +1,13 @@
 fn main() {
-    let mut n = 0;
-    let mut m = 0;
-    'main_loop: loop {
-        println!("loop");
-        loop {
-            println!("loop in loop");
-            if n == 5 {
-                break 'main_loop;
-            }
-            n += 1;
+    let v = [3, 8, 11, 15];
+    let mut result = 0;
+    for x in v.iter() {
+        println!("x: {}", *x);
+        if *x % 2 == 0 {
+            continue;
         }
-        if (m == 5) {
-            break;
-        }
+        result += *x;
     }
-
+    println!("Result: {}", result);
 }
 
