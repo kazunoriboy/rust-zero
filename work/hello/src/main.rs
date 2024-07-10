@@ -1,17 +1,15 @@
 fn main() {
-    let n = -5;
-    if n < 0 {
-        println!("n is negative");
+    fn sumup_loop(mut n: u64) -> u64 {
+        let mut total = 0;
+        loop {
+            if n == 0 {
+                break;
+            }
+            total += n;
+            n -= 1;
+        }
+        total
     }
-
-    let b = if n > 0 {
-        n + n
-    } else if n < 0 {
-        n * n
-    } else {
-        1
-    };
-
-    println!("b = {}", b);
+    println!("{}", sumup_loop(10));
 }
 
