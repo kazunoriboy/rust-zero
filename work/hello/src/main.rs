@@ -1,4 +1,5 @@
 fn main() {
+    #[derive(Debug)]
     enum Storage {
         HDD { size: u32, rpm: u32 },
         SSD(u32),
@@ -18,5 +19,13 @@ fn main() {
             }
         }
     }
+
+    let mut s = Storage::SSD(512);
+    println!("{:?}", s);
+    let size = s.get_size();
+    println!("Size: {}", size);
+    s.set_size(1024);
+    println!("{:?}", s);
+
 }
 
