@@ -20,12 +20,32 @@ fn main() {
         }
     }
 
+    #[derive(Debug)]
+    struct PCSpec {
+        cpus: u16,
+        memory: u32, 
+        storage: Storage,
+    }
+
+    impl PCSpec {
+        fn new(cpus: u16, memory: u32, storage: Storage) -> PCSpec {
+            PCSpec {
+                cpus,
+                memory, 
+                storage,
+            }
+        }
+    }
+
     let mut s = Storage::SSD(512);
     println!("{:?}", s);
     let size = s.get_size();
     println!("Size: {}", size);
     s.set_size(1024);
     println!("{:?}", s);
+
+    let spec = PCSpec::new(8, 32, s);
+    println!("{:?}", spec);
 
 }
 
