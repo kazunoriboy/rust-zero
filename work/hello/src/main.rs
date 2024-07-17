@@ -1,20 +1,17 @@
-use std::collections::LinkedList;
+use std::collections::BTreeMap;
+
 fn main() {
-    let mut list1 = LinkedList::new();
-    list1.push_back(0);
-    list1.push_back(1);
-    list1.push_back(2);
+    let mut m = BTreeMap::new();
+    m.insert(1, "apple");
+    m.insert(2, "orange");
+    m.insert(3, "banana");
 
-    let mut list2 = LinkedList::new();
-    list2.push_back(100);
-    list2.push_back(200);
-    list2.push_back(300);
+    if let Some(old) = m.remove(&2) {
+        println!("{old}");
+    }
 
-    list1.append(&mut list2);
-
-    list1.push_front(-10);
-    println!("{:?}", list1);
-    println!("{:?}", list2);
-
+    if let Some(value) = m.get(&3) {
+        println!("{value}");
+    }
 }
 
