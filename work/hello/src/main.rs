@@ -1,51 +1,20 @@
+use std::collections::LinkedList;
 fn main() {
-    #[derive(Debug)]
-    enum Storage {
-        HDD { size: u32, rpm: u32 },
-        SSD(u32),
-    }
-    impl Storage {
-        fn get_size(&self) -> u32 {
-            match self {
-                Storage::HDD { size: s, .. } => *s,
-                Storage::SSD(s) => *s,
-            }
-        }
+    let mut list1 = LinkedList::new();
+    list1.push_back(0);
+    list1.push_back(1);
+    list1.push_back(2);
 
-        fn set_size(&mut self, size: u32) {
-            match self {
-                Storage::HDD { size: s, .. } => *s = size,
-                Storage::SSD(s) => *s = size,
-            }
-        }
-    }
+    let mut list2 = LinkedList::new();
+    list2.push_back(100);
+    list2.push_back(200);
+    list2.push_back(300);
 
-    #[derive(Debug)]
-    struct PCSpec {
-        cpus: u16,
-        memory: u32, 
-        storage: Storage,
-    }
+    list1.append(&mut list2);
 
-    impl PCSpec {
-        fn new(cpus: u16, memory: u32, storage: Storage) -> PCSpec {
-            PCSpec {
-                cpus,
-                memory, 
-                storage,
-            }
-        }
-    }
-
-    let mut s = Storage::SSD(512);
-    println!("{:?}", s);
-    let size = s.get_size();
-    println!("Size: {}", size);
-    s.set_size(1024);
-    println!("{:?}", s);
-
-    let spec = PCSpec::new(8, 32, s);
-    println!("{:?}", spec);
+    list1.push_front(-10);
+    println!("{:?}", list1);
+    println!("{:?}", list2);
 
 }
 
