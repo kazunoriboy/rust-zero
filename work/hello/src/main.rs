@@ -1,27 +1,15 @@
-use std::collections::BTreeSet;
-use std::collections::LinkedList;
-
 fn main() {
-    let mut v = Vec::new();
-    v.push(10);
-    v.push(5);
-
-    let mut s = BTreeSet::new();
-    s.insert(100);
-    s.insert(400);
-
-    let it = v.iter().chain(s.iter());
-    for n in it.clone().map(|n| n * 2) {
-        println!("{}", n);
+    fn worker() -> u32 {
+        println!("worker");
+        100
     }
 
-    let total = it.clone().fold(0, |acc, x| acc + x);
-    println!("Total: {}", total);
+    let handler = std::thread::spawn(worker);
 
-    let list: LinkedList<_> = it.filter(|n| *n % 2 == 0).collect();
-
-    for (n, m) in v.iter().zip(s.iter()) {
-        println!("{}, {}", n, m);
+    match handler.join() {
+        Ok(n) => println!("{n}"),
+        Err(e) => println!("{:?}", e),
     }
+
 }
 
