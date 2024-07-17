@@ -1,17 +1,14 @@
-use std::collections::BTreeMap;
+use std::collections::BTreeSet;
 
 fn main() {
-    let mut m = BTreeMap::new();
-    m.insert(1, "apple");
-    m.insert(2, "orange");
-    m.insert(3, "banana");
+    let mut s = BTreeSet::new();
+    s.insert(100);
+    s.insert(400);
+    s.insert(6);
+    s.insert(1);
 
-    if let Some(old) = m.remove(&2) {
-        println!("{old}");
-    }
-
-    if let Some(value) = m.get(&3) {
-        println!("{value}");
+    for n in s.iter() {
+        println!("{}", n);
     }
 }
 
