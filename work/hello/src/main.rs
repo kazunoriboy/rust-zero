@@ -1,18 +1,21 @@
 fn main() {
-    fn m() {
-        let a = 10;
-        let b = 20;
+    #[derive(Debug)]
+    struct H2O {}
+    struct O2 {}
+    struct H2 {}
 
-        {
-            let c = 30;
-            let d = 40;
-            n();
-        }
+    fn burn(_h2_1: H2, _h2_2: H2, _o2: O2) -> (H2O, H2O) {
+        (H2O {}, H2O {})
     }
 
-    fn n() {
-        let e = 50;
-        let f = 60;
-    }
+    let h2_1 = H2 {};
+    let h2_2 = H2 {};
+    let o2 = O2 {};
+
+    let (h2o_1, h2o_2) = burn(h2_1, h2_2, o2);
+
+    // 以下のコードをコメントインするとコンパイルエラーになる
+    // let (h2o_1, h2o_2) = burn(h2_1, h2_2, o2);
+    println!("{:?} {:?}", h2o_1, h2o_2);
 }
 
