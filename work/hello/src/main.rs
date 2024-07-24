@@ -1,7 +1,9 @@
 fn main() {
-    let a = 10;
-    let b = 20;
-    let c = a + b;
-    let d = a * b;
+    let a;
+    {
+        let b = 10;
+        a = &b;
+    }
+    println!("{}", a);
 }
 
