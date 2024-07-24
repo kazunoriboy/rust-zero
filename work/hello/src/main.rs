@@ -1,21 +1,13 @@
 fn main() {
-    let a: i32 = 10;
-    let p: i32 = 6;
-    let b: &i32 = &p;
-
-    fn square<'a>(x: &'a i32) -> i32 {
-        x * x
+    fn add<'a>(x: &'a mut i32, y: &'a i32) {
+        *x += *y;
     }
 
-    let res = square(b);
-    println!("res: {}", res);
-
-    #[derive(Debug)]
-    struct Foo<'a> {
-        x: &'a i32,
+    let mut x = 10;
+    {
+        let y = 20;
+        add(&mut x, &y);
     }
-
-    let foo = Foo { x: &a };
-    println!("{:?}", foo);
+    println!("{}", x);
 }
 
