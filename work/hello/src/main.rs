@@ -3,7 +3,7 @@ fn main() {
     {
         let b = 10;
         a = &b;
+        println!("{}", a);
     }
-    println!("{}", a);
 }
 
